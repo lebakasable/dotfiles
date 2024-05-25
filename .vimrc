@@ -2,6 +2,7 @@ set nocompatible
 autocmd Filetype * setlocal formatoptions-=c formatoptions-=r  formatoptions-=o
 set encoding=UTF-8
 filetype on
+set expandtab
 set smarttab
 set path+=**
 filetype plugin on
@@ -56,16 +57,15 @@ let mapleader=" "
 nnoremap U <c-r>
 nnoremap <silent> <esc> :noh<CR>
 
+map <leader>f :Files<CR>
+map <leader>b :Buffers<CR>
+map <leader>l :Lines<CR>
+
 map <leader>e :Lex<CR>
 map <leader>o :Explore<CR>
 
 nnoremap <leader>g :Git<CR>
-nnoremap <silent> <leader>t :!ctags -R .<CR>
-
-map <c-t> :ter<CR>
-tnoremap <c-t> exit<CR>
-tnoremap <c-i> <c-w><s-n>
-tnoremap <Esc> <C-\><C-n>
+nnoremap <leader>t :!ctags -R .<CR>
 
 map <leader>y :split<space>
 map <leader>x :vsplit<space>
@@ -93,3 +93,8 @@ autocmd FileType haskell nnoremap <buffer> ,main :-1read ~/.vim/snippets/haskell
 autocmd FileType python nnoremap <buffer> ,main :-1read ~/.vim/snippets/python/main.py<CR>
 autocmd FileType c nnoremap <buffer> ,main :-1read ~/.vim/snippets/c/main.c<CR>
 autocmd BufRead,BufNewFile LICENSE nnoremap <buffer> ,mit :-1read ~/.vim/snippets/license/mit<CR>
+
+nnoremap <leader>m :make! 
+autocmd QuickFixCmdPost [^l]* cwindow
+autocmd QuickFixCmdPost l* cclose
+
