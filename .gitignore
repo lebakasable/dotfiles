@@ -5,3 +5,4 @@
 /.emacs.d/transient/
 /fish/fish_variables
 /nvim/undo/
+/helix/runtime

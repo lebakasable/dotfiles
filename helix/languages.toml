@@ -1,0 +1,918 @@
+use-grammars = { except = ["wren", "gemini"] }
+
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 20 
+snippets_first = true 
+feature_words = true 
+feature_snippets = true 
+feature_unicode_input = true
+feature_paths = true
+
+[language-server.scls.environment]
+RUST_LOG = "info,simple-completion-language-server=info"
+LOG_FILE = "/tmp/completion.log"
+
+[[language]]
+name = "ada"
+language-servers = ["scls"]
+
+[[language]]
+name = "adl"
+language-servers = ["scls"]
+
+[[language]]
+name = "agda"
+language-servers = ["scls"]
+
+[[language]]
+name = "astro"
+language-servers = ["scls"]
+
+[[language]]
+name = "awk"
+language-servers = ["scls"]
+
+[[language]]
+name = "bash"
+language-servers = ["scls"]
+
+[[language]]
+name = "bass"
+language-servers = ["scls"]
+
+[[language]]
+name = "beancount"
+language-servers = ["scls"]
+
+[[language]]
+name = "bibtex"
+language-servers = ["scls"]
+
+[[language]]
+name = "bicep"
+language-servers = ["scls"]
+
+[[language]]
+name = "bitbake"
+language-servers = ["scls"]
+
+[[language]]
+name = "blade"
+language-servers = ["scls"]
+
+[[language]]
+name = "blueprint"
+language-servers = ["scls"]
+
+[[language]]
+name = "c"
+language-servers = ["scls"]
+
+[[language]]
+name = "c-sharp"
+language-servers = ["scls"]
+  
+[[language]]
+name = "cabal"
+language-servers = ["scls"]
+
+[[language]]
+name = "cairo"
+language-servers = ["scls"]
+
+[[language]]
+name = "capnp"
+language-servers = ["scls"]
+
+[[language]]
+name = "cel"
+language-servers = ["scls"]
+
+[[language]]
+name = "clojure"
+language-servers = ["scls"]
+
+[[language]]
+name = "cmake"
+language-servers = ["scls"]
+
+[[language]]
+name = "comment"
+language-servers = ["scls"]
+
+[[language]]
+name = "common-lisp"
+language-servers = ["scls"]
+
+[[language]]
+name = "cpon"
+language-servers = ["scls"]
+
+[[language]]
+name = "cpp"
+language-servers = ["scls"]
+
+[[language]]
+name = "crystal"
+language-servers = ["scls"]
+
+[[language]]
+name = "css"
+language-servers = ["scls"]
+
+[[language]]
+name = "cue"
+language-servers = ["scls"]
+
+[[language]]
+name = "d"
+language-servers = ["scls"]
+
+[[language]]
+name = "dart"
+language-servers = ["scls"]
+
+[[language]]
+name = "dbml"
+language-servers = ["scls"]
+
+[[language]]
+name = "devicetree"
+language-servers = ["scls"]
+
+[[language]]
+name = "dhall"
+language-servers = ["scls"]
+
+[[language]]
+name = "diff"
+language-servers = ["scls"]
+
+[[language]]
+name = "docker-compose"
+language-servers = ["scls"]
+
+[[language]]
+name = "dockerfile"
+language-servers = ["scls"]
+
+[[language]]
+name = "dot"
+language-servers = ["scls"]
+
+[[language]]
+name = "dtd"
+language-servers = ["scls"]
+
+[[language]]
+name = "earthfile"
+language-servers = ["scls"]
+
+[[language]]
+name = "edoc"
+language-servers = ["scls"]
+
+[[language]]
+name = "eex"
+language-servers = ["scls"]
+
+[[language]]
+name = "ejs"
+language-servers = ["scls"]
+
+[[language]]
+name = "elixir"
+language-servers = ["scls"]
+
+[[language]]
+name = "elm"
+language-servers = ["scls"]
+
+[[language]]
+name = "elvish"
+language-servers = ["scls"]
+
+[[language]]
+name = "env"
+language-servers = ["scls"]
+
+[[language]]
+name = "erb"
+language-servers = ["scls"]
+
+[[language]]
+name = "erlang"
+language-servers = ["scls"]
+
+[[language]]
+name = "esdl"
+language-servers = ["scls"]
+
+[[language]]
+name = "fidl"
+language-servers = ["scls"]
+
+[[language]]
+name = "fish"
+language-servers = ["scls"]
+
+[[language]]
+name = "forth"
+file-types = ["fs", "4th", "fth"]
+language-servers = ["scls"]
+
+[[language]]
+name = "fortran"
+language-servers = ["scls"]
+
+[[language]]
+name = "fsharp"
+file-types = []
+language-servers = ["scls"]
+
+[[language]]
+name = "gas"
+language-servers = ["scls"]
+
+[[language]]
+name = "gdscript"
+language-servers = ["scls"]
+
+[[language]]
+name = "gemini"
+language-servers = ["scls"]
+
+[[language]]
+name = "git-attributes"
+language-servers = ["scls"]
+
+[[language]]
+name = "git-commit"
+language-servers = ["scls"]
+
+[[language]]
+name = "git-config"
+language-servers = ["scls"]
+
+[[language]]
+name = "git-ignore"
+language-servers = ["scls"]
+
+[[language]]
+name = "git-rebase"
+language-servers = ["scls"]
+
+[[language]]
+name = "gjs"
+language-servers = ["scls"]
+
+[[language]]
+name = "gleam"
+language-servers = ["scls"]
+
+[[language]]
+name = "glimmer"
+language-servers = ["scls"]
+
+[[language]]
+name = "glsl"
+language-servers = ["scls"]
+
+[[language]]
+name = "gn"
+language-servers = ["scls"]
+
+[[language]]
+name = "go"
+language-servers = ["scls"]
+
+[[language]]
+name = "godot-resource"
+language-servers = ["scls"]
+
+[[language]]
+name = "gomod"
+language-servers = ["scls"]
+
+[[language]]
+name = "gotmpl"
+language-servers = ["scls"]
+
+[[language]]
+name = "gowork"
+language-servers = ["scls"]
+
+[[language]]
+name = "graphql"
+language-servers = ["scls"]
+
+[[language]]
+name = "groovy"
+language-servers = ["scls"]
+
+[[language]]
+name = "gts"
+language-servers = ["scls"]
+
+[[language]]
+name = "hare"
+language-servers = ["scls"]
+
+[[language]]
+name = "haskell"
+language-servers = ["scls"]
+
+[[language]]
+name = "haskell"
+language-servers = ["scls"]
+
+[[language]]
+name = "hcl"
+language-servers = ["scls"]
+
+[[language]]
+name = "heex"
+language-servers = ["scls"]
+
+[[language]]
+name = "helm"
+language-servers = ["scls"]
+
+[[language]]
+name = "hocon"
+language-servers = ["scls"]
+
+[[language]]
+name = "hoon"
+language-servers = ["scls"]
+
+[[language]]
+name = "hosts"
+language-servers = ["scls"]
+
+[[language]]
+name = "html"
+language-servers = ["scls"]
+
+[[language]]
+name = "hurl"
+language-servers = ["scls"]
+
+[[language]]
+name = "hyprlang"
+language-servers = ["scls"]
+
+[[language]]
+name = "idris"
+language-servers = ["scls"]
+
+[[language]]
+name = "iex"
+language-servers = ["scls"]
+
+[[language]]
+name = "ini"
+language-servers = ["scls"]
+
+[[language]]
+name = "inko"
+language-servers = ["scls"]
+
+[[language]]
+name = "janet"
+language-servers = ["scls"]
+
+[[language]]
+name = "java"
+language-servers = ["scls"]
+
+[[language]]
+name = "javascript"
+language-servers = ["scls"]
+
+[[language]]
+name = "jinja"
+language-servers = ["scls"]
+
+[[language]]
+name = "jsdoc"
+language-servers = ["scls"]
+
+[[language]]
+name = "json"
+language-servers = ["scls"]
+
+[[language]]
+name = "json5"
+language-servers = ["scls"]
+
+[[language]]
+name = "jsonc"
+language-servers = ["scls"]
+
+[[language]]
+name = "jsonnet"
+language-servers = ["scls"]
+
+[[language]]
+name = "jsx"
+language-servers = ["scls"]
+
+[[language]]
+name = "julia"
+language-servers = ["scls"]
+
+[[language]]
+name = "just"
+language-servers = ["scls"]
+
+[[language]]
+name = "kdl"
+language-servers = ["scls"]
+
+[[language]]
+name = "koka"
+language-servers = ["scls"]
+
+[[language]]
+name = "kotlin"
+language-servers = ["scls"]
+
+[[language]]
+name = "latex"
+language-servers = ["scls"]
+
+[[language]]
+name = "ld"
+language-servers = ["scls"]
+
+[[language]]
+name = "ldif"
+language-servers = ["scls"]
+
+[[language]]
+name = "lean"
+language-servers = ["scls"]
+
+[[language]]
+name = "ledger"
+language-servers = ["scls"]
+
+[[language]]
+name = "llvm-mir"
+language-servers = ["scls"]
+
+[[language]]
+name = "llvm-mir-yaml"
+language-servers = ["scls"]
+
+[[language]]
+name = "llvm"
+language-servers = ["scls"]
+
+[[language]]
+name = "log"
+language-servers = ["scls"]
+
+[[language]]
+name = "lpf"
+language-servers = ["scls"]
+
+[[language]]
+name = "lua"
+language-servers = ["scls"]
+
+[[language]]
+name = "make"
+language-servers = ["scls"]
+
+[[language]]
+name = "markdoc"
+language-servers = ["scls"]
+
+[[language]]
+name = "markdown"
+language-servers = ["scls"]
+
+[[language]]
+name = "markdown"
+language-servers = ["scls"]
+
+[[language]]
+name = "matlab"
+language-servers = ["scls"]
+
+[[language]]
+name = "mermaid"
+language-servers = ["scls"]
+
+[[language]]
+name = "meson"
+language-servers = ["scls"]
+
+[[language]]
+name = "mint"
+language-servers = ["scls"]
+
+[[language]]
+name = "mojo"
+language-servers = ["scls"]
+
+[[language]]
+name = "move"
+language-servers = ["scls"]
+
+[[language]]
+name = "msbuild"
+language-servers = ["scls"]
+
+[[language]]
+name = "nasm"
+language-servers = ["scls"]
+
+[[language]]
+name = "nickel"
+language-servers = ["scls"]
+
+[[language]]
+name = "nim"
+language-servers = ["scls"]
+
+[[language]]
+name = "nix"
+language-servers = ["scls"]
+
+[[language]]
+name = "nu"
+language-servers = ["scls"]
+
+[[language]]
+name = "nunjucks"
+language-servers = ["scls"]
+
+[[language]]
+name = "ocaml"
+language-servers = ["scls"]
+
+[[language]]
+name = "ocaml-interface"
+language-servers = ["scls"]
+
+[[language]]
+name = "odin"
+language-servers = ["scls"]
+
+[[language]]
+name = "ohm"
+language-servers = ["scls"]
+
+[[language]]
+name = "opencl"
+language-servers = ["scls"]
+
+[[language]]
+name = "openscad"
+language-servers = ["scls"]
+
+[[language]]
+name = "org"
+language-servers = ["scls"]
+
+[[language]]
+name = "pascal"
+language-servers = ["scls"]
+
+[[language]]
+name = "passwd"
+language-servers = ["scls"]
+
+[[language]]
+name = "pem"
+language-servers = ["scls"]
+
+[[language]]
+name = "perl"
+language-servers = ["scls"]
+
+[[language]]
+name = "pest"
+language-servers = ["scls"]
+
+[[language]]
+name = "php"
+language-servers = ["scls"]
+
+[[language]]
+name = "php-only"
+language-servers = ["scls"]
+
+[[language]]
+name = "pkgbuild"
+language-servers = ["scls"]
+
+[[language]]
+name = "pkl"
+language-servers = ["scls"]
+
+[[language]]
+name = "po"
+language-servers = ["scls"]
+
+[[language]]
+name = "pod"
+language-servers = ["scls"]
+
+[[language]]
+name = "ponylang"
+language-servers = ["scls"]
+
+[[language]]
+name = "powershell"
+language-servers = ["scls"]
+
+[[language]]
+name = "prisma"
+language-servers = ["scls"]
+
+[[language]]
+name = "prolog"
+language-servers = ["scls"]
+
+[[language]]
+name = "protobuf"
+language-servers = ["scls"]
+
+[[language]]
+name = "prql"
+language-servers = ["scls"]
+
+[[language]]
+name = "purescript"
+language-servers = ["scls"]
+
+[[language]]
+name = "python"
+language-servers = ["scls"]
+
+[[language]]
+name = "qml"
+language-servers = ["scls"]
+
+[[language]]
+name = "r"
+language-servers = ["scls"]
+
+[[language]]
+name = "racket"
+language-servers = ["scls"]
+
+[[language]]
+name = "regex"
+language-servers = ["scls"]
+
+[[language]]
+name = "rego"
+language-servers = ["scls"]
+
+[[language]]
+name = "rescript"
+language-servers = ["scls"]
+
+[[language]]
+name = "rmarkdown"
+language-servers = ["scls"]
+
+[[language]]
+name = "robot"
+language-servers = ["scls"]
+
+[[language]]
+name = "ron"
+language-servers = ["scls"]
+
+[[language]]
+name = "rst"
+language-servers = ["scls"]
+
+[[language]]
+name = "ruby"
+language-servers = ["scls"]
+
+[[language]]
+name = "rust"
+language-servers = ["scls"]
+
+[[language]]
+name = "sage"
+language-servers = ["scls"]
+
+[[language]]
+name = "scala"
+language-servers = ["scls"]
+
+[[language]]
+name = "scheme"
+language-servers = ["scls"]
+
+[[language]]
+name = "scss"
+language-servers = ["scls"]
+
+[[language]]
+name = "slint"
+language-servers = ["scls"]
+
+[[language]]
+name = "smali"
+language-servers = ["scls"]
+
+[[language]]
+name = "smithy"
+language-servers = ["scls"]
+
+[[language]]
+name = "sml"
+language-servers = ["scls"]
+
+[[language]]
+name = "solidity"
+language-servers = ["scls"]
+
+[[language]]
+name = "spicedb"
+language-servers = ["scls"]
+
+[[language]]
+name = "sql"
+language-servers = ["scls"]
+
+[[language]]
+name = "sshclientconfig"
+language-servers = ["scls"]
+
+[[language]]
+name = "starlark"
+language-servers = ["scls"]
+
+[[language]]
+name = "strace"
+language-servers = ["scls"]
+
+[[language]]
+name = "supercollider"
+language-servers = ["scls"]
+
+[[language]]
+name = "svelte"
+language-servers = ["scls"]
+
+[[language]]
+name = "sway"
+language-servers = ["scls"]
+
+[[language]]
+name = "swift"
+language-servers = ["scls"]
+
+[[language]]
+name = "t32"
+language-servers = ["scls"]
+
+[[language]]
+name = "tablegen"
+language-servers = ["scls"]
+
+[[language]]
+name = "tact"
+language-servers = ["scls"]
+
+[[language]]
+name = "task"
+language-servers = ["scls"]
+
+[[language]]
+name = "tcl"
+language-servers = ["scls"]
+
+[[language]]
+name = "templ"
+language-servers = ["scls"]
+
+[[language]]
+name = "tfvars"
+language-servers = ["scls"]
+
+[[language]]
+name = "todotxt"
+language-servers = ["scls"]
+
+[[language]]
+name = "toml"
+language-servers = ["scls"]
+
+[[language]]
+name = "tsq"
+language-servers = ["scls"]
+
+[[language]]
+name = "tsx"
+language-servers = ["scls"]
+
+[[language]]
+name = "twig"
+language-servers = ["scls"]
+
+[[language]]
+name = "typescript"
+language-servers = ["scls"]
+
+[[language]]
+name = "typst"
+language-servers = ["scls"]
+
+[[language]]
+name = "ungrammar"
+language-servers = ["scls"]
+
+[[language]]
+name = "unison"
+language-servers = ["scls"]
+
+[[language]]
+name = "uxntal"
+language-servers = ["scls"]
+
+[[language]]
+name = "v"
+language-servers = ["scls"]
+
+[[language]]
+name = "vala"
+language-servers = ["scls"]
+
+[[language]]
+name = "verilog"
+language-servers = ["scls"]
+
+[[language]]
+name = "vhdl"
+language-servers = ["scls"]
+
+[[language]]
+name = "vhs"
+language-servers = ["scls"]
+
+[[language]]
+name = "vue"
+language-servers = ["scls"]
+
+[[language]]
+name = "wast"
+language-servers = ["scls"]
+
+[[language]]
+name = "wat"
+language-servers = ["scls"]
+
+[[language]]
+name = "webc"
+language-servers = ["scls"]
+
+[[language]]
+name = "wgsl"
+language-servers = ["scls"]
+
+[[language]]
+name = "wit"
+language-servers = ["scls"]
+
+[[language]]
+name = "wren"
+language-servers = ["scls"]
+
+[[language]]
+name = "xit"
+language-servers = ["scls"]
+
+[[language]]
+name = "xml"
+language-servers = ["scls"]
+
+[[language]]
+name = "xtc"
+language-servers = ["scls"]
+
+[[language]]
+name = "yaml"
+language-servers = ["scls"]
+
+[[language]]
+name = "yuck"
+language-servers = ["scls"]
+
+[[language]]
+name = "zig"
+language-servers = ["scls"]
