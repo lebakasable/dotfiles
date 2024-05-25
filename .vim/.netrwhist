@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/hugo/.dotfiles/.emacs.d'
+let g:netrw_dirhist_6='/home/hugo/.hoogle'
+let g:netrw_dirhist_5='/home/hugo'
+let g:netrw_dirhist_4='/home/hugo/projects/dhack'
+let g:netrw_dirhist_3='/home/hugo/projects'
+let g:netrw_dirhist_2='/home/hugo/projects/dhack'
+let g:netrw_dirhist_1='/home/hugo/projects'
