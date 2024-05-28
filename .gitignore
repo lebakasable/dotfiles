@@ -3,6 +3,11 @@
 /.emacs.d/elpaca/
 /.emacs.d/projects
 /.emacs.d/transient/
+/.emacs.d/tramp
 /fish/fish_variables
 /nvim/undo/
 /helix/runtime
+/.vim/.netrwhist
+/.vim/backup/
+/.vim/swap/
+/nvim/lazy-lock.json

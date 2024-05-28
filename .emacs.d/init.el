@@ -103,7 +103,8 @@
   :bind (("C-n" . completion-at-point)))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :bind (("C-x g" . magit)))
 
 (use-package odin-mode :ensure (:host github :repo "mattt-b/odin-mode"))
 (use-package nim-mode :ensure t)
@@ -112,3 +113,7 @@
 (use-package nasm-mode :ensure t)
 (use-package fasm-mode :ensure (:host github :repo "emacsattic/fasm-mode"))
 (use-package esol-mode :load-path "~/projects/esol/editors")
+(use-package clojure-mode :ensure t)
+(use-package cider :ensure t)
+(use-package hare-mode :ensure (:host sourcehut :repo "bbuccianti/hare-mode"))
+(use-package racket-mode :ensure t)

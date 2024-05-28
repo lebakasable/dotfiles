@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/hugo/projects/gart'
+let g:netrw_dirhist_8='/home/hugo/.config/elvish'
 let g:netrw_dirhist_7='/home/hugo/.dotfiles/.emacs.d'
 let g:netrw_dirhist_6='/home/hugo/.hoogle'
 let g:netrw_dirhist_5='/home/hugo'

@@ -2,21 +2,20 @@ import = [
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
-# [shell]
-# program = "/usr/bin/tmux"
-# args = ["new-session", "-A", "-D", "-s", "main"]
+[shell]
+program = "/usr/local/bin/elvish"
 
 [window]
-padding = { x = 3, y = 3 }
+padding = { x = 4, y = 4 }
 dynamic_padding = true
 
 [font]
-normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
-bold = { family = "JetBrainsMonoNerdFont", style = "Bold" }
-italic = { family = "JetBrainsMonoNerdFont", style = "Italic" }
-bold_italic = { family = "JetBrainsMonoNerdFont", style = "BoldItalic" }
+normal = { family = "Iosevka Term", style = "Regular" }
+bold = { family = "Iosevka Term", style = "Bold" }
+italic = { family = "Iosevka Term", style = "Italic" }
+bold_italic = { family = "Iosevka Term", style = "BoldItalic" }
 
-size = 11
+size = 12
 
 [mouse]
 hide_when_typing = true

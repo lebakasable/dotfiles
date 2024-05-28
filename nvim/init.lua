@@ -1,104 +1,125 @@
-local path_package = vim.fn.stdpath('data') .. '/site/'
-local mini_path = path_package .. 'pack/deps/start/mini.nvim'
-if not vim.loop.fs_stat(mini_path) then
-  vim.cmd('echo "Installing `mini.nvim`" | redraw')
-  local clone_cmd = {
-    'git', 'clone', '--filter=blob:none',
-    'https://github.com/echasnovski/mini.nvim', mini_path
-  }
-  vim.fn.system(clone_cmd)
-  vim.cmd('packadd mini.nvim | helptags ALL')
-  vim.cmd('echo "Installed `mini.nvim`" | redraw')
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-require('mini.deps').setup()
-
-local add = MiniDeps.add
-local now, later = MiniDeps.now, MiniDeps.later
-
-add('catppuccin/nvim')
-now(function() vim.cmd('colorscheme catppuccin') end)
-
-add('famiu/feline.nvim')
-now(function()
-  local ctp_feline = require('catppuccin.groups.integrations.feline')
-  ctp_feline.setup()
-  require('feline').setup({ components = ctp_feline.get() })
-end)
-
-add('ethanholz/nvim-lastplace')
-now(function() require('nvim-lastplace').setup() end)
-
--- later(function() require('mini.cursorword').setup() end)
--- later(function()
---   local hipatterns = require('mini.hipatterns')
---   hipatterns.setup({
---     highlighters = {
---       fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
---       hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
---       todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
---       note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
---       hex_color = hipatterns.gen_highlighter.hex_color(),
---     },
---   })
--- end)
-
-later(function() require('mini.pairs').setup() end)
-later(function() require('mini.surround').setup() end)
-later(function() require('mini.align').setup() end)
-later(function() require('mini.move').setup({
-  mappings = {
-    left = '<M-left>',
-    right = '<M-right>',
-    up = '<M-up>',
-    down = '<M-down>',
-    line_left = '<M-left>',
-    line_right = '<M-right>',
-    line_up = '<M-up>',
-    line_down = '<M-down>',
+require("lazy").setup({
+  {
+    'catppuccin/nvim',
+    config = function()
+      require('catppuccin').setup({
+        mini = {
+          enabled = true,
+        },
+      })
+      vim.cmd('colorscheme catppuccin')
+    end,
   },
-}) end)
--- later(function() require('mini.operators').setup() end)
-later(function() require('mini.comment').setup() end)
-add('dcampos/nvim-snippy')
-add('honza/vim-snippets')
-later(function() require('snippy').setup({
-  mappings = {
-    is = {
-      ['<tab>'] = 'expand_or_advance',
-      ['<s-tab>'] = 'previous',
-    },
+
+  {
+    'famiu/feline.nvim',
+    config = function()
+      local ctp_feline = require('catppuccin.groups.integrations.feline')
+      ctp_feline.setup()
+      require('feline').setup({ components = ctp_feline.get() })
+    end,
   },
-}) end)
 
-later(function() require('mini.pick').setup() end)
-later(function() require('mini.files').setup({
-  mappings = {
-    go_in = '<right>',
-    go_out = '<left>',
+  {
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require('nvim-lastplace').setup()
+    end,
   },
-}) end)
 
-later(function() require('mini.extra').setup() end)
+  {
+    'echasnovski/mini.nvim',
+    config = function()
+      require('mini.pairs').setup()
+      require('mini.surround').setup()
+      require('mini.align').setup()
+      require('mini.move').setup({
+        mappings = {
+          left = '<M-left>',
+          right = '<M-right>',
+          up = '<M-up>',
+          down = '<M-down>',
+          line_left = '<M-left>',
+          line_right = '<M-right>',
+          line_up = '<M-up>',
+          line_down = '<M-down>',
+        },
+      })
+      require('mini.comment').setup()
+      require('mini.pick').setup()
+      require('mini.files').setup({
+        mappings = {
+          go_in = '<right>',
+          go_out = '<left>',
+        },
+      })
+      require('mini.extra').setup()
+    end,
+  },
 
-add({
-  source = 'NeogitOrg/neogit',
-  depends = { 'nvim-lua/plenary.nvim' },
-})
-later(function() require('neogit').setup() end)
+  {
+    'dcampos/nvim-snippy',
+    keys = { { '<tab>', mode = 'i' } },
+    dependencies = 'honza/vim-snippets',
+    config = function()
+      require('snippy').setup({
+        mappings = {
+          is = {
+            ['<tab>'] = 'expand_or_advance',
+            ['<s-tab>'] = 'previous',
+          },
+        },
+      })
+    end,
+  },
 
-add('kevinhwang91/nvim-bqf')
-add('briot/ada.nvim')
-add('Tetralux/odin.vim')
-add('https://git.sr.ht/~sircmpwn/hare.vim')
-add('ziglang/zig.vim')
-add('dag/vim2hs')
-add('bfrg/vim-cpp-modern')
-add('tikhomirov/vim-glsl')
-add('zah/nim.vim')
-add('imsnif/kdl.vim')
-add('fedorenchik/fasm.vim')
-add('dstein64/vim-startuptime')
+  {
+    'NeogitOrg/neogit',
+    cmd = 'Neogit',
+    dependencies = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('neogit').setup()
+    end,
+  },
+
+  {
+    'ThePrimeagen/harpoon',
+    dependencies = 'nvim-lua/plenary.nvim',
+    lazy = true,
+  },
+
+  { 'kevinhwang91/nvim-bqf', ft = 'qf' },
+  { 'briot/ada.nvim', ft = 'ada' },
+  { 'Tetralux/odin.vim', ft = 'odin' },
+  { 'https://git.sr.ht/~sircmpwn/hare.vim', ft = 'hare' },
+  { 'ziglang/zig.vim', ft = 'zig' },
+  { 'dag/vim2hs', ft = 'haskell' },
+  { 'bfrg/vim-cpp-modern', ft = { 'c', 'cpp' } },
+  { 'tikhomirov/vim-glsl', ft = 'glsl' },
+  { 'zah/nim.vim', ft = 'nim' },
+  { 'imsnif/kdl.vim', ft = 'kdl' },
+  { 'fedorenchik/fasm.vim', ft = 'asm' },
+
+  {
+    'jpe90/export-colorscheme.nvim',
+    config = function()
+      require('export-colorscheme')
+    end,
+  },
+}, {})
 
 local opt, g = vim.opt, vim.g
 
@@ -126,8 +147,6 @@ keymaps = {
   n = {
     U = '<C-r>',
     ['<esc>'] = ':noh<cr>',
-    ['<tab>'] = ':bn<cr>',
-    ['<S-tab>'] = ':bp<cr>',
     ['<leader>'] = {
       x = ':bd<cr>',
       f = {
@@ -135,6 +154,12 @@ keymaps = {
         f = ':Pick files<cr>',
         b = ':Pick buffers<cr>',
         l = ':Pick grep_live<cr>',
+      },
+      h = {
+        a = ':lua require("harpoon.mark").add_file()<cr>',
+        f = ':lua require("harpoon.ui").toggle_quick_menu()<cr>',
+        n = ':lua require("harpoon.ui").nav_next()<cr>',
+        p = ':lua require("harpoon.ui").nav_prev()<cr>',
       },
       c = ':m<space>',
       q = {
