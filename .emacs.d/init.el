@@ -117,3 +117,5 @@
 (use-package cider :ensure t)
 (use-package hare-mode :ensure (:host sourcehut :repo "bbuccianti/hare-mode"))
 (use-package racket-mode :ensure t)
+(use-package proof-general :ensure t)
+(use-package company-coq :ensure t)

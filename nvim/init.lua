@@ -112,6 +112,9 @@ require("lazy").setup({
   { 'zah/nim.vim', ft = 'nim' },
   { 'imsnif/kdl.vim', ft = 'kdl' },
   { 'fedorenchik/fasm.vim', ft = 'asm' },
+  { 'rust-lang/rust.vim', ft = 'rust' },
+  { 'whonore/Coqtail', ft = 'coq' },
+  { dir = '~/projects/tofu/editors/tofu.vim', ft = 'tofu' },
 
   {
     'jpe90/export-colorscheme.nvim',
