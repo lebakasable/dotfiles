@@ -11,7 +11,7 @@ vis.ftdetect.filetypes.coq = {ext = {"%.v$"}}
 vis.ftdetect.filetypes.tofu = {ext = {"%.tofu$"}}
 vis.ftdetect.filetypes.tal = {ext = {"%.tal$"}}
 vis.ftdetect.filetypes.zig = {ext = {"%.zig$", "%.zig.zon$"}}
-vis.ftdetect.filetypes.boba = {ext = {"%.boba$"}}
+vis.ftdetect.filetypes.boba = {ext = {"%.bobac$"}}
 local function nmap(k, b)
   return vis:map(vis.modes.NORMAL, k, b)
 end

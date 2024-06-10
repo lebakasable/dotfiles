@@ -23,7 +23,7 @@
 (set vis.ftdetect.filetypes.tofu {:ext ["%.tofu$"]})
 (set vis.ftdetect.filetypes.tal {:ext ["%.tal$"]})
 (set vis.ftdetect.filetypes.zig {:ext ["%.zig$" "%.zig.zon$"]})
-(set vis.ftdetect.filetypes.boba {:ext ["%.boba$"]})
+(set vis.ftdetect.filetypes.boba {:ext ["%.bobac$"]})
 
 (fn nmap [k b]
   (vis:map vis.modes.NORMAL k b))
