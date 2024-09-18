@@ -115,6 +115,7 @@ require("lazy").setup({
   { 'rust-lang/rust.vim', ft = 'rust' },
   { 'whonore/Coqtail', ft = 'coq' },
   { dir = '~/projects/tofu/editors/tofu.vim', ft = 'tofu' },
+  { 'Archargelod/TIC-80.vim' },
 
   {
     'jpe90/export-colorscheme.nvim',
@@ -186,6 +187,7 @@ keymaps = {
 
 autocmds = {
   ['*.lasm,*.hasm'] = 'setf nasm',
+  ['*.soba'] = 'setf soba',
   ['*.adb,*.ads'] = 'call g:gnat.Set_Project_File ("default.gpr")',
   ['*.odin'] = {
     'let &errorformat="%f(%l:%c) %m"',
