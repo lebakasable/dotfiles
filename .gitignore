@@ -7,7 +7,5 @@
 /fish/fish_variables
 /nvim/undo/
 /helix/runtime
-/.vim/.netrwhist
-/.vim/backup/
-/.vim/swap/
 /nvim/lazy-lock.json
+/.vim
