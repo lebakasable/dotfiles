@@ -1,0 +1,61 @@
+# options
+set-option global ui_options terminal_assistant=off
+set-option global autocomplete prompt
+set-option global scrolloff 10,10
+
+# plugins
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug-chain andreyorst/plug.kak noload %{
+} plug andreyorst/fzf.kak config %{
+   map global user f -docstring "fzf" %{: fzf-mode<ret>}
+} defer fzf %{
+   set-option global fzf_default_opts "%sh{ echo $FZF_DEFAULT_OPTS }"
+} plug https://github.com/occivink/kakoune-vertical-selection config %{
+   declare-user-mode vertical-selection
+   map global vertical-selection <down> %{: vertical-selection-down<ret>}
+   map global vertical-selection <up> %{: vertical-selection-up<ret>}
+   map global normal <c-v> %{: enter-user-mode vertical-selection<ret>}
+}
+
+require-module dtach-repl
+
+colorscheme catppuccin_mocha
+
+# highlighters
+add-highlighter global/ show-matching -previous
+
+# commands
+define-command open-in-new-window -params .. -file-completion %{ new edit "%arg{@}"}
+
+define-command comment %{
+   try %{
+      execute-keys _
+      comment-block
+   } catch comment-line
+}
+
+# mappings
+alias global e open-in-new-window
+map global user c -docstring "comment lines" %{: comment<ret>}
+
+declare-user-mode repl
+map global repl n -docstring "new repl" %{: repl-new<ret>}
+map global repl s -docstring "send text" %{: repl-send-text<ret>}
+map global user r -docstring "repl" %{: enter-user-mode repl<ret>}
+
+declare-user-mode tig
+map global tig s %{: terminal tig status<ret>} -docstring "show git status"
+map global tig m %{: terminal tig<ret>} -docstring "show main view"
+map global user t %{: enter-user-mode tig<ret>} -docstring "tig"
+
+map global user n -docstring "open nnn" %{: terminal nnn -e<ret>}
+
+# hooks
+hook global WinCreate .* %{
+   add-highlighter window/ number-lines -relative -hlcursor
+}
+
+hook global BufOpenFile .* %{ editorconfig-load }
+hook global BufNewFile .* %{ editorconfig-load }
+
+hook global InsertChar "\t" %{ execute-keys -draft h@ }

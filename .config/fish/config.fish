@@ -20,7 +20,9 @@ alias v vim
 alias k "kak -c meow"
 alias cd z
 alias nnn "nnn -e"
-alias config "git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+function config --wraps ls
+   git --git-dir=$HOME/.dotfiles --work-tree=$HOME $argv;
+end
 
 nvm use latest --silent
 
