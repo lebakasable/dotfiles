@@ -15,6 +15,12 @@ plug-chain andreyorst/plug.kak noload %{
    map global vertical-selection <down> %{: vertical-selection-down<ret>}
    map global vertical-selection <up> %{: vertical-selection-up<ret>}
    map global normal <c-v> %{: enter-user-mode vertical-selection<ret>}
+} plug "lePerdu/kakboard" %{
+   hook global WinCreate .* %{ kakboard-enable }
+} plug "andreyorst/smarttab.kak" %{
+   hook global BufOpenFile .* expandtab
+	hook global BufNewFile .* expandtab
+	hook global WinSetOption filetype=makefile noexpandtab
 }
 
 require-module dtach-repl
@@ -50,6 +56,15 @@ map global user t %{: enter-user-mode tig<ret>} -docstring "tig"
 
 map global user n -docstring "open nnn" %{: terminal nnn -e<ret>}
 
+declare-user-mode buffer
+map global buffer d %{: delete-buffer!<ret>} -docstring "close current buffer"
+map global buffer D %{: evaluate-commands -buffer * delete-buffer!<ret>} -docstring "close all buffers"
+map global buffer n %{: buffer-next<ret>} -docstring "next buffer"
+map global buffer p %{: buffer-previous<ret>} -docstring "previous buffer"
+map global user b -docstring "buffer" %{: enter-user-mode buffer<ret>}
+
+map global user m -docstring "make" %{: new make<ret>}
+
 # hooks
 hook global WinCreate .* %{
    add-highlighter window/ number-lines -relative -hlcursor
@@ -57,5 +72,3 @@ hook global WinCreate .* %{
 
 hook global BufOpenFile .* %{ editorconfig-load }
 hook global BufNewFile .* %{ editorconfig-load }
-
-hook global InsertChar "\t" %{ execute-keys -draft h@ }
