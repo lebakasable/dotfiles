@@ -81,3 +81,4 @@ function! AlignLine(line, sep, maxpos, extra)
 endfunction
 
 autocmd BufRead,BufNewFile *.oak set filetype=oak
+autocmd BufRead,BufNewFile *.stas set filetype=stas
