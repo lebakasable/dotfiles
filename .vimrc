@@ -22,6 +22,7 @@ set wildmenu
 set hlsearch
 set incsearch
 set ttimeoutlen=10
+let mapleader = ' '
 
 call plug#begin()
 
@@ -45,6 +46,7 @@ hi CursorLine guibg=NONE ctermbg=NONE
 command! -nargs=? -range Align <line1>,<line2>call AlignSection('<args>')
 
 nnoremap <silent> <Esc> :noh<CR>
+nnoremap <silent> <leader>m :make!<CR>
 
 augroup RestoreCursor
    autocmd!
@@ -82,3 +84,7 @@ endfunction
 
 autocmd BufRead,BufNewFile *.oak set filetype=oak
 autocmd BufRead,BufNewFile *.stas set filetype=stas
+autocmd BufRead,BufNewFile *.pas compiler fpc
+
+autocmd QuickFixCmdPost [^l]* cwindow
+autocmd QuickFixCmdPost    l* lwindow
